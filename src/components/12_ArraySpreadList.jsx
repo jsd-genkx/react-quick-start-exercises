@@ -4,7 +4,7 @@ let nextId = 0;
 
 export default function ArraySpreadList() {
   const [name, setName] = useState("");
-  const [artists, setArtists] = useState([]);
+  const [inspiringPeople, setInspiringPeople] = useState([]);
 
   return (
     <>
@@ -12,14 +12,17 @@ export default function ArraySpreadList() {
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <button
         onClick={() => {
-          setArtists([...artists, { id: nextId++, name: name }]);
+          setInspiringPeople([
+            ...inspiringPeople,
+            { id: nextId++, name: name },
+          ]);
         }}
       >
         Add
       </button>
       <ul>
-        {artists.map((artist) => (
-          <li key={artist.id}>{artist.name}</li>
+        {inspiringPeople.map((person) => (
+          <li key={person.id}>{person.name}</li>
         ))}
       </ul>
     </>
